@@ -13,7 +13,8 @@ const paisesGet = async (req = request, res = response) => {
 }
 
 const estadosGet = async (req = request, res = response) => {
-    const data = await Estados.findAll()
+    const { pais } = req.params
+    const data = await Estados.findAll({ where: { idpais: pais } })
     res.status(200).json(
         {
             data
@@ -22,7 +23,8 @@ const estadosGet = async (req = request, res = response) => {
 }
 
 const ciudadesGet = async (req = request, res = response) => {
-    const data = await Ciudad.findAll()
+    const { estado } = req.params
+    const data = await Ciudad.findAll({ where: { idestado: estado } })
     res.status(200).json(
         {
             data

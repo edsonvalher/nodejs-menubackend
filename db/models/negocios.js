@@ -2,8 +2,7 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../connection')
 const Negocios = db.define('negocios', {
   idnegocio: {
-    autoIncrement: true,
-    type: DataTypes.BIGINT,
+    type: DataTypes.STRING(50),
     allowNull: false,
     primaryKey: true
   },

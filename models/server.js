@@ -5,6 +5,7 @@ const cors = require('cors')
 const { db } = require('../db/connection')
 
 const rutaCatalogo = require('../routes/catalogo.routes')
+const rutaNegocio = require('../routes/negocios.routes')
 
 class Server {
 
@@ -12,7 +13,8 @@ class Server {
         this.app = express();
         this.puerto = process.env.PORT || 1512
         this.rutas = {
-            catalogos: '/catalogos'
+            catalogos: '/catalogos',
+            negocios: '/negocios'
         }
 
         //abrir conexión db
@@ -33,8 +35,9 @@ class Server {
     }
 
     routes() {
-        const { catalogos } = this.rutas
+        const { catalogos, negocios } = this.rutas
         this.app.use(catalogos, rutaCatalogo);
+        this.app.use(negocios, rutaNegocio);
 
 
     }

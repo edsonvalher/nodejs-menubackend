@@ -2,8 +2,7 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../connection')
 const Direcciones = db.define('direcciones', {
   iddireccion: {
-    autoIncrement: true,
-    type: DataTypes.BIGINT,
+    type: DataTypes.STRING(50),
     allowNull: false,
     primaryKey: true
   },
@@ -34,7 +33,15 @@ const Direcciones = db.define('direcciones', {
   longitud: {
     type: DataTypes.FLOAT,
     allowNull: false
-  }
+  },
+  telefono1: {
+    type: DataTypes.STRING(25),
+    allowNull: true
+  },
+  telefono2: {
+    type: DataTypes.STRING(25),
+    allowNull: true
+  },
 }, {
   db,
   tableName: 'direcciones',

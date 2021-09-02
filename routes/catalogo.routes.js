@@ -3,8 +3,8 @@ const { paisesGet, estadosGet, ciudadesGet, categoriasGet } = require('../contro
 const router = Router()
 
 router.get('/paises', paisesGet)
-router.get('/estados', estadosGet)
-router.get('/ciudades', ciudadesGet)
+router.get('/estados/:pais', estadosGet)
+router.get('/ciudades/:estado', ciudadesGet)
 router.get('/categorias', categoriasGet)
 
 module.exports = router;
